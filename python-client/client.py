@@ -12,14 +12,14 @@ import hashlib
 from gtts import gTTS
 
 server_ip = sys.argv[2]
-#server_ip = "192.168.1.115"
+print("server IP: " + server_ip)
 server_port = sys.argv[4]
-#server_port = 8085
-
+print("port: " + server_port)
 socket_size = sys.argv[6]
-#socket_size = 1024
+print("size: " + socket_size)
 tag = sys.argv[8]
-#tag = "#ECE4564T24"
+print("tag: " + tag)
+# to run python3 client.py -s 192.168.1.128 -p 8888 -z 1024 -t "#ECE4564T24"
 
 # ----------------------------------functions--------------------------
 
