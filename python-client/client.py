@@ -72,8 +72,14 @@ class MyStreamListener(StreamListener):
         print("The MD5 Hash value is:" + hash_value)
         # receive
         # setup server connection
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((server_ip, server_port))
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((server_ip, server_port))
+        except socket.error as message:
+            if s:
+                s.close()
+            print ("Unable to open socket: " + str(message))
+            sys.exit(1)
         s.send(send_question)
         while 1:
             data = s.recv(socket_size)
