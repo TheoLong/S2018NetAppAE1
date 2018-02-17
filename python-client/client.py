@@ -10,15 +10,23 @@ import pickle
 from cryptography.fernet import Fernet
 import hashlib
 from gtts import gTTS
+import argparse
 
-server_ip = sys.argv[2]
-print("server IP: " + server_ip)
-server_port = sys.argv[4]
-print("port: " + server_port)
-socket_size = sys.argv[6]
-print("size: " + socket_size)
-tag = sys.argv[8]
-print("tag: " + tag)
+parser = argparse.ArgumentParser(description='Arguments for client.')
+parser.add_argument('-s', dest='server_ip',  help="server ip", type = str, action="store", default="192.168.0.1")
+parser.add_argument('-p', dest='server_port', help="server port", type = int, action="store", default=8080)
+parser.add_argument('-z', dest='socket_size',  help="socket size", type = int, action="store", default=1024)
+parser.add_argument('-t', dest='tag', help="tag", action="store", type = str, default="ECE4564T24")
+args = parser.parse_args()
+print(args)
+server_ip = args.server_ip
+server_port = args.server_port
+socket_size = args.socket_size
+tag = args.tag
+print (server_ip)
+print (server_port)
+print (socket_size)
+print (tag)
 # to run python3 client.py -s 192.168.1.128 -p 8888 -z 1024 -t "#ECE4564T24"
 
 # ----------------------------------functions--------------------------
