@@ -3,7 +3,7 @@
 # @Author: Theo
 # @Date:   2018-02-10 14:12:12
 # @Last Modified by:   Theo
-# @Last Modified time: 2018-02-17 17:45:17
+# @Last Modified time: 2018-02-17 18:09:32
 
 '''packages: 
 sudo pip3 install gTTS
@@ -23,9 +23,10 @@ import argparse
 import os
 #===========================    arguments   ==============================
 parser = argparse.ArgumentParser(description='Arguments for server.')
-parser.add_argument("-p", dest='server_port',  help="server port", action="store", default=8080)
-parser.add_argument('-b', dest='backlog_size', help="backlog size",action="store", default=5)
-parser.add_argument('-z', dest='socket_size',  help="socket size", action="store", default=1024)
+parser.add_argument('-p', dest='server_port',  help="server port", action="store", type=int, default=80)
+parser.add_argument('-b', dest="backlog_size", help="backlog size",action="store", type=int, default=5)
+parser.add_argument('-z', dest="socket_size",  help="socket size", action="store", type=int, default=1024)
+args=parser.parse_args()
 
 #===========================    functions   ==============================
 def speak(string):
@@ -68,8 +69,7 @@ def hash(data):
         hasher.update(data[i: i + 8192])
     return hasher.digest()
 #===========================    loading data   ==============================
-args = parser.parse_args()
-print (args)
+
 host = ''
 port = args.server_port
 backlog = args.backlog_size
