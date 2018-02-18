@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 import sys
 import socket
-import keys
+from clientKeys import consumer_key
+from clientKeys import consumer_secret
+from clientKeys import access_token
+from clientKeys import access_token_secret
 from tweepy import StreamListener
 from tweepy import Stream
 import os
@@ -122,8 +125,8 @@ class MyStreamListener(StreamListener):
 
 # -------------------main start here----------------------------------
 # setup connection
-auth = OAuthHandler(keys.API_Key(), keys.API_Secret())
-auth.set_access_token(keys.Access_Token(), keys.Access_Secret())
+auth = OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
 # start a listener
 myStream = Stream(auth, MyStreamListener())
 # filter out string with tag
