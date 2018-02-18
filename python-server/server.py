@@ -3,7 +3,7 @@
 # @Author: Theo
 # @Date:   2018-02-10 14:12:12
 # @Last Modified by:   Theo
-# @Last Modified time: 2018-02-17 21:17:48
+# @Last Modified time: 2018-02-17 21:21:02
 
 '''packages: 
 sudo pip3 install gTTS
@@ -47,7 +47,6 @@ def depackage(package):
     encryptor = Fernet(key)
     question = encryptor.decrypt(question)
     question = question.decode('utf-8')
-    print ('========Question: ' + question)
     return question
 
 def pack(answer):
