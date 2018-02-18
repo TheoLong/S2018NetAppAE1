@@ -23,10 +23,10 @@ server_ip = args.server_ip
 server_port = args.server_port
 socket_size = args.socket_size
 tag = args.tag
-print (server_ip)
-print (server_port)
-print (socket_size)
-print (tag)
+#print (server_ip)
+#print (server_port)
+#print (socket_size)
+#print (tag)
 # to run python3 client.py -s 192.168.1.128 -p 8888 -z 1024 -t "#ECE4564T24"
 
 # ----------------------------------functions--------------------------
@@ -74,10 +74,14 @@ class MyStreamListener(StreamListener):
         # pickle
         send = (key, question_encrypt, hash_value)
         send_question = pickle.dumps(send)
-        print("The question is: " + question)
-        print("The key is: " + key)
-        print("The encrypted question is: " + question_encrypt)
-        print("The MD5 Hash value is:" + hash_value)
+        print("The question is: ")
+        print( question )
+        print("The key is: ")
+        print( key )
+        print("The encrypted question is: ")
+        print( question_encrypt )
+        print("The MD5 Hash value is:")
+        print( hash_value.decode )
         # receive
         # setup server connection
         try:
